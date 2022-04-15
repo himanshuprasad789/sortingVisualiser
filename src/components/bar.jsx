@@ -1,8 +1,8 @@
 import React from 'react'
 import './../App.css'
-const Bar = ({len}) => {
+const Bar = ({len,width}) => {
   return (
-    <div className='bar' style={{height:`${len}px`}}></div>
+    <div className='bar' style={{height:`${len}px`,width:`${width}px`}}></div>
   )
 }
 

@@ -1,29 +1,45 @@
-import React from 'react'
+import React ,{useState}from 'react'
 import '../App.css'
 import newArray from '../utils/newArray'
 import bubblesort from '../algorithms/bubbleSort'
 import mergesort from '../algorithms/mergeSort'
+import {disablechild,enablechild} from '../utils/disableEnable'
 const Header = ({array,setArray,arraySize,handleChange}) => {
+    
+    const [steptime,setSteptime]=useState(100)
   return (
     <div className="header">
         <button onClick={()=>{
             setArray(newArray(arraySize));
+            
         }}>new Array</button>
-        <input type="range" min={5} max={150} step={5} onChange={(e)=>{
+        <input type="range" min={5} max={100} step={5} onChange={(e)=>{
             handleChange(e);
         }}/>
+        <input type="range" min={5} max={1000} step={50} onChange={(e)=>{
+            const newvalue=e.target.value;
+
+            setSteptime(newvalue);
+            console.log(steptime)
+        }}/>
         <button onClick={()=>{
+            
             const sorted=[...array];
             sorted.sort((a,b)=>a-b)
             console.log('sorted',sorted)
             setArray(sorted);
 
         }}>sort</button>
-        <button onClick={()=>{
+        <button onClick={async ()=>{
+            disablechild();
             const sorted=[...array];
-            bubblesort(sorted)
+            await bubblesort(sorted,steptime)
             console.log('sorted',sorted)
-            setArray(sorted);
+            enablechild();
+            // setArray(sorted);
+            // children.forEach(child=>{
+            //     child.disabled = false;
+            // })
         }}>bubblesort</button>
         <button onClick={()=>{
             let sorted=[...array];
