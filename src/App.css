@@ -1,0 +1,35 @@
+*{
+  padding: 0;
+  margin:0;
+  box-sizing: border-box;
+
+}
+.App{
+  display:flex;
+  flex-direction:column;
+  width:100vw;
+  height:100vh;
+  
+}
+.header{
+  border:1px solid red;
+  width:100%;
+  height:15vh;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+}
+.container{
+  border:1px solid red;
+  display:flex;
+  padding:0 50px;
+  width:100%;
+  height:85vh;
+  justify-content:space-between;
+  align-items:flex-end;
+}
+.bar{
+  border: 2px solid black;
+  width:4px;
+  background-color: black;
+}
