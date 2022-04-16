@@ -25,11 +25,13 @@
   padding:0 50px;
   width:100%;
   height:85vh;
-  justify-content:space-between;
+  justify-content:center;
   align-items:flex-end;
 }
 .bar{
   border: 1px solid black;
   width:10px;
+  margin-right:3px;
   background-color: black;
+  transition: height 0.1s ease-in-out;
 }
